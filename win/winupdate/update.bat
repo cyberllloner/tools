@@ -24,11 +24,8 @@ goto :MENU
 :DISABLE
 echo.
 echo Disabling Windows Update services...
-sc config wuauserv start= disabled
 net stop wuauserv
-sc config bits start= disabled
 net stop bits
-sc config dosvc start= disabled
 net stop dosvc
 echo.
 echo [DONE] Windows Update has been disabled.
@@ -38,11 +35,9 @@ goto :MENU
 :ENABLE
 echo.
 echo Enabling Windows Update services...
-sc config wuauserv start= auto
+@echo off
 net start wuauserv
-sc config bits start= auto
 net start bits
-sc config dosvc start= auto
 net start dosvc
 echo.
 echo [DONE] Windows Update has been enabled.
